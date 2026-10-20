@@ -32,10 +32,6 @@ const tabTitles: Record<string, { title: string; subtitle: string }> = {
   '3d-factory': {
     title: '3D Factory Model',
     subtitle: 'Interactive virtual view of factory workstations, material flow, and equipment status'
-  },
-  'interactive-hero': {
-    title: 'Interactive Liquid Sculpture Hero',
-    subtitle: 'GPU-accelerated WebGL2 particle simulation with real-time fluid dynamics'
   }
 };
 
