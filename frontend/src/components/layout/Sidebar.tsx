@@ -5,7 +5,8 @@ import {
   Box,
   Factory,
   CheckCircle2,
-  AlertTriangle
+  AlertTriangle,
+  Sparkles
 } from 'lucide-react';
 
 interface SidebarProps {
@@ -44,6 +45,14 @@ export const Sidebar: React.FC<SidebarProps> = ({
       icon: Box,
       badge: 'Interactive',
       badgeColor: 'bg-blue-50 text-blue-700 border-blue-200'
+    },
+    {
+      id: 'interactive-hero',
+      name: 'Liquid Sculpture',
+      description: 'GPU Particle Hero',
+      icon: Sparkles,
+      badge: 'WebGL2',
+      badgeColor: 'bg-purple-50 text-purple-700 border-purple-200'
     }
   ];
 

@@ -32,6 +32,10 @@ const tabTitles: Record<string, { title: string; subtitle: string }> = {
   '3d-factory': {
     title: '3D Factory Model',
     subtitle: 'Interactive virtual view of factory workstations, material flow, and equipment status'
+  },
+  'interactive-hero': {
+    title: 'Interactive Liquid Sculpture Hero',
+    subtitle: 'GPU-accelerated WebGL2 particle simulation with real-time fluid dynamics'
   }
 };
 
@@ -56,7 +60,7 @@ export const TopNav: React.FC<TopNavProps> = ({
           <span className="font-medium text-slate-500">Manufacturing Digital Twin</span>
           <span>/</span>
           <span className="text-blue-600 font-semibold">{currentInfo.title}</span>
-          {selectedMachineId && (
+          {selectedMachineId && currentTab !== 'interactive-hero' && (
             <>
               <span>/</span>
               <span className="text-slate-800 font-mono font-bold">{selectedMachineId}</span>

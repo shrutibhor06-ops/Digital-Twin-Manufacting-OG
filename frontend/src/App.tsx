@@ -5,6 +5,7 @@ import { MachineDetailModal } from './components/layout/MachineDetailModal';
 import { OverviewDashboard } from './pages/OverviewDashboard';
 import { PredictiveAnalysis } from './pages/PredictiveAnalysis';
 import { DigitalTwin3DPage } from './pages/DigitalTwin3DPage';
+import Demo from '@/components/ui/demo';
 import {
   fetchBackendStatus,
   fetchMachines,
@@ -174,6 +175,12 @@ export function App() {
               }}
               activeScenario={activeScenario}
             />
+          )}
+
+          {currentTab === 'interactive-hero' && (
+            <div className="w-full h-[calc(100vh-6.5rem)] rounded-2xl overflow-hidden shadow-lg border border-slate-200/80 bg-white">
+              <Demo />
+            </div>
           )}
         </main>
       </div>
