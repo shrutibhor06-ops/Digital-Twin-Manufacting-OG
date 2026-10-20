@@ -1,0 +1,18 @@
+/.idea/
+*.iml
+.idea/
+__pycache__/
+
+main.py
+helper.py
+.gitmodules
+# MkDocs build output
+site/
+
+# Node & Frontend
+frontend/node_modules/
+node_modules/
+frontend/dist/
+.DS_Store
+*.log
+screenshots/
