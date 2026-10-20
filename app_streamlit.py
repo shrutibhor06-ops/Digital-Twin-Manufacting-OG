@@ -516,16 +516,16 @@ elif nav_mode == "🏭 Factory Live Monitoring":
     # Factory Overview KPI Cards
     col1, col2, col3, col4 = st.columns(4)
     with col1:
-        oee = overview["kpis"]["overall_equipment_effectiveness"] if overview else 89.4
+        oee = overview.get("kpis", {}).get("overall_equipment_effectiveness", 89.4) if isinstance(overview, dict) else 89.4
         st.metric("Overall Equipment Effectiveness (OEE)", f"{oee}%", "+1.2% shift avg")
     with col2:
-        out = overview["kpis"]["total_units_produced"] if overview else 1420
+        out = overview.get("kpis", {}).get("total_units_produced", 1420) if isinstance(overview, dict) else 1420
         st.metric("Total Output (Shift Units)", f"{out:,} units", "+42 vs target")
     with col3:
-        alerts = overview["kpis"]["active_alerts_count"] if overview else 0
+        alerts = overview.get("kpis", {}).get("active_alerts_count", 0) if isinstance(overview, dict) else 0
         st.metric("Active Maintenance Alerts", f"{alerts} Alerts", "-1 since last hour" if alerts > 0 else "All nominal")
     with col4:
-        yield_rate = overview["kpis"]["quality_yield_rate"] if overview else 99.2
+        yield_rate = overview.get("kpis", {}).get("quality_yield_rate", 99.2) if isinstance(overview, dict) else 99.2
         st.metric("Quality First-Pass Yield", f"{yield_rate}%", "Standard: 98.5%")
 
     st.markdown("---")
@@ -596,7 +596,7 @@ elif nav_mode == "🤖 Predictive Maintenance Suite":
     pred_data = get_predictive_machine_data(machine_id, active_scenario)
     
     if pred_data:
-        m_info = pred_data["machine"]
+        m_info = pred_data.get("machine", {"health_score": 98, "status": "Running"}) if isinstance(pred_data, dict) else {"health_score": 98, "status": "Running"}
         risk = pred_data["failure_risk"]
         rul = pred_data.get("rul_hours", int((1.0 - risk) * 720))
         
